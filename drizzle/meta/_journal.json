@@ -1,0 +1,139 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1787661053902,
+      "tag": "0000_motionless_hellion",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1787661366338,
+      "tag": "0001_mixed_wendell_vaughn",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1787662139728,
+      "tag": "0002_jazzy_azazel",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1787663979753,
+      "tag": "0003_bored_firebrand",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1787668804182,
+      "tag": "0004_naive_katie_power",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1787668956689,
+      "tag": "0005_remarkable_harpoon",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1787669200453,
+      "tag": "0006_amazing_microchip",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1787696895844,
+      "tag": "0007_aspiring_dracula",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1787706137398,
+      "tag": "0008_round_hellcat",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1787708309206,
+      "tag": "0009_skinny_captain_marvel",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1787738571382,
+      "tag": "0010_new_rachel_grey",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1787832015731,
+      "tag": "0011_superb_gambit",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "5",
+      "when": 1787832307637,
+      "tag": "0012_sour_swordsman",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "5",
+      "when": 1787865572517,
+      "tag": "0013_supreme_wilson_fisk",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "5",
+      "when": 1787888434266,
+      "tag": "0014_yielding_wildside",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "5",
+      "when": 1787909181228,
+      "tag": "0015_friendly_paladin",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "5",
+      "when": 1787930179461,
+      "tag": "0016_complex_smiling_tiger",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "5",
+      "when": 1788917992262,
+      "tag": "0017_small_jackal",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "5",
+      "when": 1788919372629,
+      "tag": "0018_supreme_baron_strucker",
+      "breakpoints": true
+    }
+  ]
+}

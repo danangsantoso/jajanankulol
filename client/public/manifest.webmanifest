@@ -1,0 +1,18 @@
+{
+  "name": "Jajananku - POS UMKM Multi-Cabang",
+  "short_name": "Jajananku",
+  "description": "Platform POS UMKM multi-tenant dan multi-cabang dengan kasir QR, stok, serta laporan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7FFFD",
+  "theme_color": "#0C796E",
+  "icons": [
+    {
+      "src": "/manus-storage/jajananku-main-logo_dea6d69a.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait-primary"
+}

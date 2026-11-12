@@ -1,0 +1,1 @@
+ALTER TABLE `tenantReceiptSettings` MODIFY COLUMN `paperWidth` enum('58','70') NOT NULL DEFAULT '58';

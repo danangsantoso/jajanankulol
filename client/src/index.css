@@ -1,0 +1,247 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Nunito", Arial, Helvetica, sans-serif;
+  --font-display: "Baloo 2", "Nunito", Arial, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: oklch(0.52 0.12 179);
+  --primary-foreground: oklch(0.99 0.005 180);
+  --sidebar-primary: oklch(0.52 0.12 179);
+  --sidebar-primary-foreground: oklch(0.99 0.005 180);
+  --chart-1: oklch(0.61 0.13 179);
+  --chart-2: oklch(0.81 0.16 87);
+  --chart-3: oklch(0.69 0.16 26);
+  --chart-4: oklch(0.59 0.14 264);
+  --chart-5: oklch(0.75 0.11 145);
+  --radius: 1.15rem;
+  --background: oklch(0.984 0.011 170);
+  --foreground: oklch(0.26 0.054 174);
+  --card: oklch(0.997 0.003 180);
+  --card-foreground: oklch(0.26 0.054 174);
+  --popover: oklch(0.997 0.003 180);
+  --popover-foreground: oklch(0.26 0.054 174);
+  --secondary: oklch(0.925 0.045 173);
+  --secondary-foreground: oklch(0.29 0.068 175);
+  --muted: oklch(0.948 0.022 174);
+  --muted-foreground: oklch(0.52 0.044 173);
+  --accent: oklch(0.91 0.091 88);
+  --accent-foreground: oklch(0.3 0.073 173);
+  --destructive: oklch(0.57 0.19 27);
+  --destructive-foreground: oklch(0.99 0.005 180);
+  --border: oklch(0.884 0.035 173);
+  --input: oklch(0.884 0.035 173);
+  --ring: oklch(0.58 0.13 179);
+  --sidebar: oklch(0.992 0.008 173);
+  --sidebar-foreground: oklch(0.26 0.054 174);
+  --sidebar-accent: oklch(0.925 0.045 173);
+  --sidebar-accent-foreground: oklch(0.29 0.068 175);
+  --sidebar-border: oklch(0.884 0.035 173);
+  --sidebar-ring: oklch(0.58 0.13 179);
+}
+
+.dark {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-500);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.85 0.005 65);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.85 0.005 65);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.85 0.005 65);
+  --secondary: oklch(0.24 0.006 286.033);
+  --secondary-foreground: oklch(0.7 0.005 65);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground:  oklch(0.92 0.005 65);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.488 0.243 264.376);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.85 0.005 65);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.488 0.243 264.376);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+
+.label-export-sheet { position: absolute; left: 0; top: 0; z-index: -1; width: 194mm; min-height: 281mm; box-sizing: border-box; padding: 7mm; visibility: hidden; pointer-events: none; background: #fff; color: #0b5149; }
+.label-preview-sheet { min-width: 718px; padding: 20px; background: #fff; box-shadow: 0 8px 26px rgba(12, 121, 110, 0.11); }
+.label-sheet-grid { --label-width: 58mm; --label-height: 34mm; --label-columns: 3; --label-qr-column: 25mm; --label-qr-size: 23mm; --label-qr-image: 22mm; --label-name-size: 7.7pt; --label-name-lines: 3; --label-price-size: 8.5pt; --label-code-size: 4.6pt; display: grid; grid-template-columns: repeat(var(--label-columns), var(--label-width)); justify-content: center; gap: 3mm; }
+.label-sheet-grid[data-label-size="compact"] { --label-width: 40mm; --label-height: 30mm; --label-columns: 4; --label-qr-column: 16mm; --label-qr-size: 14mm; --label-qr-image: 13mm; --label-name-size: 5.6pt; --label-name-lines: 4; --label-price-size: 6.8pt; --label-code-size: 3.7pt; gap: 2.5mm; }
+.label-sheet-grid[data-label-size="large"] { --label-width: 70mm; --label-height: 40mm; --label-columns: 2; --label-qr-column: 30mm; --label-qr-size: 28mm; --label-qr-image: 27mm; --label-name-size: 9pt; --label-name-lines: 3; --label-price-size: 10pt; --label-code-size: 5.2pt; }
+.label-sheet-grid[data-label-size="wide"] { --label-width: 100mm; --label-height: 50mm; --label-columns: 1; --label-qr-column: 42mm; --label-qr-size: 39mm; --label-qr-image: 38mm; --label-name-size: 11pt; --label-name-lines: 3; --label-price-size: 12pt; --label-code-size: 6.5pt; }
+.label-card { width: var(--label-width); height: var(--label-height); break-inside: avoid; display: grid; grid-template-columns: var(--label-qr-column) minmax(0, 1fr); align-items: center; gap: 2mm; overflow: hidden; border: 0.35mm solid #94d9cf; border-radius: 3mm; background: #fff; box-sizing: border-box; padding: 2mm; }
+.label-qr-wrap { display: grid; place-items: center; width: var(--label-qr-size); height: var(--label-qr-size); border-radius: 2.2mm; background: #effcf9; }
+.label-qr-wrap img { width: var(--label-qr-image); height: var(--label-qr-image); object-fit: contain; image-rendering: crisp-edges; }
+.label-qr-skeleton { width: var(--label-qr-image); height: var(--label-qr-image); border-radius: 2mm; background: linear-gradient(90deg, #e6f5f2, #f7fffd, #e6f5f2); }
+.label-copy { min-width: 0; }
+.label-brand { margin: 0 0 0.3mm; color: #0c796e; font-family: "Nunito", sans-serif; font-size: 5pt; font-weight: 900; letter-spacing: .13em; }
+.label-copy h2 { display: -webkit-box; margin: 0; overflow: hidden; overflow-wrap: anywhere; color: #103d37; font-family: "Nunito", sans-serif; font-size: var(--label-name-size); font-weight: 900; line-height: 1.08; -webkit-box-orient: vertical; -webkit-line-clamp: var(--label-name-lines); }
+.label-price { margin: .8mm 0 0; color: #e39a00; font-family: "Nunito", sans-serif; font-size: var(--label-price-size); font-weight: 900; }
+.label-code { margin: .6mm 0 0; overflow-wrap: anywhere; color: #64817b; font-family: monospace; font-size: var(--label-code-size); line-height: 1.05; white-space: normal; }
+@media print {
+  @page { size: A4; margin: 8mm; }
+  .no-print, aside, nav, header, button, [data-sonner-toaster] { display: none !important; }
+  body { background: #fff !important; }
+  .label-export-sheet { position: static !important; left: auto !important; z-index: auto !important; width: 100% !important; min-height: auto !important; padding: 0 !important; visibility: visible !important; }
+  body.printing-receipt #root { display: none !important; }
+  body.printing-receipt .receipt-print-root { display: block !important; }
+  body.printing-receipt .receipt-print-document { margin: 0 auto; box-sizing: border-box; background: #fff; color: #000; font-family: Arial, sans-serif; font-size: 9pt; line-height: 1.35; }
+  body.printing-receipt .receipt-print-document[data-paper-width="58"] { width: 58mm; padding: 3mm; }
+  body.printing-receipt .receipt-print-document[data-paper-width="70"] { width: 70mm; padding: 3mm; }
+}
+
+.receipt-print-root { display: none; }
+.receipt-brand { display: flex; align-items: center; justify-content: center; gap: 2.5mm; text-align: left; }
+.receipt-logo { width: 9mm; height: 9mm; border-radius: 2mm; object-fit: cover; }
+.receipt-brand h1 { margin: 0; font-size: 12pt; font-weight: 800; line-height: 1.1; }
+.receipt-brand p, .receipt-address, .receipt-meta, .receipt-cashier, .receipt-footer { margin: 1.5mm 0 0; color: #343434; font-size: 8pt; }
+.receipt-address, .receipt-footer { text-align: center; }
+.receipt-meta { display: flex; justify-content: space-between; gap: 2mm; }
+.receipt-divider { margin: 2.5mm 0; border-top: .3mm dashed #777; }
+.receipt-items { display: grid; gap: 2mm; }
+.receipt-item { display: flex; justify-content: space-between; gap: 3mm; }
+.receipt-item div { min-width: 0; display: grid; gap: .4mm; }
+.receipt-item strong { font-size: 9pt; font-weight: 700; }
+.receipt-item span { color: #444; font-size: 8pt; }
+.receipt-item b { white-space: nowrap; font-size: 9pt; }
+.receipt-totals { display: grid; gap: 1.5mm; }
+.receipt-totals div { display: flex; justify-content: space-between; gap: 3mm; }
+.receipt-totals dt { color: #343434; }
+.receipt-totals dd { margin: 0; font-weight: 700; text-align: right; }
+
+.cashier-mobile-content { padding-bottom: calc(5.75rem + env(safe-area-inset-bottom)); }
+.cashier-mobile-nav { padding-bottom: max(0.625rem, env(safe-area-inset-bottom)); }
+@media (min-width: 768px) { .cashier-mobile-content { padding-bottom: 0; } }
+
+/* Form Produk memiliki isi panjang (foto, kategori, harga, dan stok). Batasi panel
+   terhadap viewport dinamis agar seluruh isi tetap dapat dijangkau di ponsel. */
+form[role="dialog"][aria-modal="true"] {
+  max-height: calc(100dvh - 1.5rem);
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+}
+
+@media (max-width: 639px) {
+  form[role="dialog"][aria-modal="true"] {
+    max-height: calc(100dvh - 1rem);
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+}

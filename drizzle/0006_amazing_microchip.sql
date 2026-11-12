@@ -1,0 +1,1 @@
+ALTER TABLE `tenantInvitations` MODIFY COLUMN `role` enum('tenant_admin','cashier') NOT NULL DEFAULT 'cashier';

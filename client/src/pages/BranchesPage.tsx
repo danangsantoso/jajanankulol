@@ -1,0 +1,23 @@
+import PageHeading from "@/components/PageHeading";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { trpc } from "@/lib/trpc";
+import { branchEmptyMessage } from "@/lib/tenantAdministrationView";
+import { Archive, Building2, Plus } from "lucide-react";
+import React, { useState } from "react";
+import { toast } from "sonner";
+
+export default function BranchesPage() {
+  const branches = trpc.branches.list.useQuery(); const workspace = trpc.workspace.current.useQuery(); const utils = trpc.useUtils();
+  const [form, setForm] = useState({ name: "", code: "", address: "" });
+  const create = trpc.branches.create.useMutation({ onSuccess: async () => { toast.success("Cabang berhasil ditambahkan."); setForm({ name: "", code: "", address: "" }); await utils.branches.list.invalidate(); await utils.workspace.current.invalidate(); }, onError: e => toast.error(e.message) });
+  const archive = trpc.branches.archive.useMutation({ onSuccess: async () => { toast.success("Cabang diarsipkan."); await utils.branches.list.invalidate(); }, onError: e => toast.error(e.message) });
+  const emptyMessage = branchEmptyMessage(branches.data?.length || 0);
+  const activeBranches = branches.data?.filter(branch => branch.status === "active").length || 0;
+  const branchLimit = workspace.data?.subscription.branchLimit || 2;
+  const atBranchLimit = activeBranches >= branchLimit;
+  return <div className="mx-auto max-w-6xl"><PageHeading eyebrow="Operasional tenant" title="Manajemen cabang" description={`Paket ${workspace.data?.subscription.planName || "Trial Bronze"} mendukung maksimal ${branchLimit} cabang aktif.`} /><div className="mt-6 grid gap-6 lg:grid-cols-[.85fr_1.15fr]"><Card className="border-0 shadow-sm"><CardContent className="p-6"><div className="flex items-center gap-3"><div className="grid h-10 w-10 place-items-center rounded-2xl bg-primary/10 text-primary"><Plus className="h-5 w-5" /></div><div><h2 className="font-display text-xl font-extrabold">Tambah cabang</h2><p className="text-sm text-muted-foreground">{activeBranches}/{branchLimit} cabang aktif · kode cabang harus unik per tenant.</p></div></div>{atBranchLimit && <div className="mt-5 rounded-xl bg-[#fff4df] p-3 text-sm font-medium text-[#985f08]">Batas paket sudah tercapai. Arsipkan cabang yang tidak digunakan atau tingkatkan paket.</div>}<form className="mt-6 space-y-4" onSubmit={e => { e.preventDefault(); create.mutate({ ...form, address: form.address || null }); }}><div><Label>Nama cabang</Label><Input required value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Contoh: Cabang Malioboro" disabled={atBranchLimit} /></div><div><Label>Kode cabang</Label><Input required value={form.code} onChange={e => setForm({ ...form, code: e.target.value.toUpperCase() })} placeholder="MLB" disabled={atBranchLimit} /></div><div><Label>Alamat <span className="text-muted-foreground">(opsional)</span></Label><Input value={form.address} onChange={e => setForm({ ...form, address: e.target.value })} placeholder="Alamat cabang" disabled={atBranchLimit} /></div><Button className="w-full" disabled={create.isPending || atBranchLimit}>{create.isPending ? "Menyimpan…" : atBranchLimit ? `Batas ${branchLimit} cabang tercapai` : "Tambah cabang"}</Button></form></CardContent></Card><div className="grid gap-4 sm:grid-cols-2">{emptyMessage ? <Card className="border-0 shadow-sm sm:col-span-2"><CardContent className="p-8 text-center text-sm text-muted-foreground">{emptyMessage}</CardContent></Card> : branches.data?.map(branch => <Card key={branch.id} className="border-0 shadow-sm"><CardContent className="p-5"><div className="flex items-start justify-between gap-3"><div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#e7fbf7] text-primary"><Building2 className="h-5 w-5" /></div><Badge variant={branch.status === "active" ? "secondary" : "outline"}>{branch.status === "active" ? "Aktif" : "Diarsipkan"}</Badge></div><h2 className="mt-5 font-display text-xl font-extrabold">{branch.name}</h2><p className="mt-1 font-mono text-xs font-bold text-primary">{branch.code}</p><p className="mt-4 min-h-10 text-sm text-muted-foreground">{branch.address || "Alamat belum ditambahkan"}</p>{branch.status === "active" && <Button variant="outline" className="mt-5 w-full" disabled={archive.isPending} onClick={() => archive.mutate({ id: branch.id })}><Archive className="mr-2 h-4 w-4" />Arsipkan cabang</Button>}</CardContent></Card>)}</div></div></div>;
+}
